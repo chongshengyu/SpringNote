@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--注册service bean-->
+    <bean id="myService" class="cn.ycs.A4BeanLifeCycle.ServiceImpl"
+          init-method="setUp"
+          destroy-method="tearDown">
+        <property name="aDao" value="aDao"/>
+        <property name="bDao" value="bDao"/>
+    </bean>
+
+    <!--注册bean post processor-->
+    <bean class="cn.ycs.A4BeanLifeCycle.MyBeanPostProcessor"/>
+
+</beans>
